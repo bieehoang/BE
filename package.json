@@ -2,9 +2,10 @@
   "name": "be",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +15,7 @@
     "node-firefox": "^0.1.0"
   },
   "devDependencies": {
+    "express-handlebars": "^6.0.7",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
   }
