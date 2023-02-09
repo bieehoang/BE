@@ -22,9 +22,9 @@ app.get('/', (req, res) => {
         title: 'Home',
     });
 });
+
 app.get('/news', (req, res) => {
     res.render('news');
-
     console.log(req.query);
 });
 
