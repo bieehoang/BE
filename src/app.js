@@ -13,7 +13,7 @@ const app = express();
 const port = 4000;
 // Connect to DB
 const db = connect;
-db.connect();
+// db.connect();
 // Log terminal
 app.use(morgan('combined'));
 // Path
