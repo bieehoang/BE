@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/app.js",
-    "watch":"node-sass --watch src/resouces/scss --output src/public/css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "node-sass --watch src/resouces/scss --output src/public/css",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -17,8 +18,14 @@
   },
   "devDependencies": {
     "express-handlebars": "^6.0.7",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.1",
     "morgan": "^1.10.0",
     "node-sass": "^8.0.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.4"
+  },
+  "lint-staged": {
+    "src/**/*.{js,scss}": "prettier  --single-quote --trailing-comma all --tab-width 4 --write"
   }
 }
