@@ -24,12 +24,10 @@ app.get('/', (req, res) => {
 });
 app.get('/news', (req, res) => {
     res.render('news');
-   
-	
-	
-	console.log(req.query);
+
+    console.log(req.query);
 });
 
-					app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Listening in http://localhost:${port}`);
 });
