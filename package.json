@@ -27,6 +27,6 @@
     "prettier": "^2.8.4"
   },
   "lint-staged": {
-    "src/**/*.{js,scss}": "prettier  --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,scss}": "prettier  --semi --single-quote --trailing-comma all --tab-width 4 --write"
   }
 }
