@@ -3,9 +3,9 @@ class SiteController {
     // [GET] /
     home(req, res) {
         // res.render('home');
-        PostModel.find({}, function (err, docs) {
+        PostModel.find({}, function (err, post) {
             if (!err) {
-                res.json(docs);
+                res.jsonp(post);
             } else {
                 res.status(400).jsonp({ error: 'message' });
             }
