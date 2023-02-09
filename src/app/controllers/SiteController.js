@@ -1,8 +1,8 @@
-class SiteController{
+class SiteController {
     // [GET] /
-    home (req, res){
+    home(req, res) {
         res.render('home');
     }
 }
 
-export default new SiteController;
+export default new SiteController();
