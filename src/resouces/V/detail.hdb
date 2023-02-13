@@ -1,7 +1,14 @@
 <div class="row">
-    <div class=""><a href="/news">BACK</a></div>
-    <div class="col-lg-12">
-        <h1>{{post.title}}</h1>
-        <p>{{post.post}}</p>
+    <div class="container">
+        <div class="col-lg-12">
+            <h1>
+                {{post.title}}
+            </h1> 
+            <img src="{{post.img}}" alt="{{title}}">
+            <div class="">
+                <p>{{post.post}}</p>
+            </div>
+            <a href="/news/">BACK</a>
+        </div>
     </div>
 </div>

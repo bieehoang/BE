@@ -1,17 +1,14 @@
 <div class="row">
-    <div class="col-lg-12">
-        <h1>NEWS</h1>
-    </div>
-    {{#each post}}
+    {{#each posts}}
     <div class="col-lg-6">
-        <div class="post">
-            <a href="/news/{{this._id}}">
-                <img src="{{this.img}}" alt="">
-            </a>
-            <a href="/news/{{this._id}}">
-                <h3>{{this.title}}</h3>
+        <div class="">
+            <a href="/news/detail/{{this.slug}}">
+                <img src="{{this.img}}" alt="{{this.title}}">
             </a>
         </div>
+        <a href="/news/detail/{{this.slug}}">
+            <h1>{{this.title}}</h1>
+        </a>
     </div>
     {{/each}}
 </div>

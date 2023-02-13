@@ -1,16 +1,22 @@
 import PostModel from '../../M/models/Post.js';
 class SiteController {
     // [GET] /
-    home(req, res) {
-        // res.render('home');
-        res.render('home'),
-            PostModel.find({}, function (err, post) {
-                // if (!err) {
-                //     res.render(post);
-                // } else {
-                //     res.status(400).jsonp({ error: 'message' });
-                // }
-            });
+    home(req, res, next) {
+        res.render('home');
+    }
+    // [GET] /search
+    search(req, res, next) {
+        const searchTerm = new String(req.body.search);
+        PostModel.find({
+            $or: [
+                { title: { $regex: searchTerm, $options: 'i' } },
+                { post: { $regex: searchTerm, $options: 'i' } },
+            ],
+        })
+            .then((result) => {
+                res.json(result);
+            })
+            .catch(next);
     }
 }
 export default new SiteController();

@@ -8,8 +8,9 @@ import route from './routes/index.js';
 import connect from './M/db/db.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const port = 4000;
 const db = connect;
 // Connect to DB
