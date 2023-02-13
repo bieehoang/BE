@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb://localhost:27017/db_dev');
+        await mongoose.connect('mongodb://localhost:27017/test');
         console.log('DB Connected');
     } catch (error) {
         console.log('Connect failed');

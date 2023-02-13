@@ -2,3 +2,7 @@
 h1 {
     color: white;
 }
+.post:first-child > img {
+    margin-right: 10px;
+    width: -moz-available;
+}

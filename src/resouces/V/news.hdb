@@ -1,1 +1,17 @@
-<h1>NEWS</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>NEWS</h1>
+    </div>
+    {{#each post}}
+    <div class="col-lg-6">
+        <div class="post">
+            <a href="/news/{{this._id}}">
+                <img src="{{this.img}}" alt="">
+            </a>
+            <a href="/news/{{this._id}}">
+                <h3>{{this.title}}</h3>
+            </a>
+        </div>
+    </div>
+    {{/each}}
+</div>
