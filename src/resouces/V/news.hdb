@@ -2,11 +2,11 @@
     {{#each posts}}
     <div class="col-lg-6">
         <div class="">
-            <a href="/news/{{this._id}}">
+            <a href="/news/detail/{{this.slug}}">
                 <img src="{{this.img}}" alt="{{this.title}}">
             </a>
         </div>
-        <a href="/news/{{this._id}}">
+        <a href="/news/detail/{{this.slug}}">
             <h1>{{this.title}}</h1>
         </a>
     </div>
