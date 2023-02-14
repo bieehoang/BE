@@ -9,7 +9,7 @@ const Post = new Schema(
         title: { type: String, null: false, maxlength: 255 },
         post: { type: String, null: false },
         img: { type: String, null: true },
-        slug: { type: String, slug: 'title', unique: true },
+        slug: { type: String, slug: 'title', unique: true, null: false },
     },
     { timestamps: true },
 );

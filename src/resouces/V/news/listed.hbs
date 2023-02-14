@@ -6,7 +6,7 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Post</th>
-      <th scope="col" colspan="4">Time</th>
+      <th scope="col" colspan="4">Last Update</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <th scope="row">{{sum @index 1 }}</th>
       <td>{{ this.title }}</td>
       <td>{{ this.post }}</td>
-      <td>{{ this.createdAt }}</td>
+      <td>{{ this.updatedAt }}</td>
       <td>
         <a href="{{this._id}}/edit">Edit</a>
       </td>
