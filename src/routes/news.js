@@ -5,10 +5,11 @@ import DetailRouters from './detail.js';
 const NewsRouter = express.Router();
 
 NewsRouter.get('/create', NewsController.create);
-NewsRouter.put('/:_id/changed', NewsController.changed);
 NewsRouter.get('/listed', NewsController.listed);
-NewsRouter.get('/:_id/edit', NewsController.edit);
 NewsRouter.post('/store', NewsController.store);
+NewsRouter.delete('/:id', NewsController.delete);
+NewsRouter.get('/:_id/edit', NewsController.edit);
+NewsRouter.put('/:_id/changed', NewsController.changed);
 NewsRouter.use('/detail', DetailRouters);
 NewsRouter.get('/', NewsController.index);
 

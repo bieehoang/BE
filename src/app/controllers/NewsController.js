@@ -50,6 +50,12 @@ class NewsController {
             })
             .catch(next);
     }
+    // [DELETE] /news/:id
+    delete(req, res, next) {
+        PostModel.findByIdAndDelete({ _id: slug.params._id })
+            .then(res.redirect('back'))
+            .catch(next);
+    }
 }
 
 export default new NewsController();
