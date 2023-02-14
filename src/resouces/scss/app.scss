@@ -20,12 +20,23 @@ html {
 .search {
     filter: blur(0.5px);
     border-radius: 26px;
-    width: 100%;
+    width: 70%;
 }
 .search:hover {
     filter: blur(0);
-
     cursor: pointer;
+    animation: searchEngine ease-in 1s !important;
+    -webkit-animation: forwards;
+}
+@keyframes searchEngine {
+    from {
+        width: 70%;
+        filter: blur(0.7);
+    }
+    to {
+        width: 120%;
+        filter: blur(0);
+    }
 }
 .post:first-child > img {
     margin-right: 10px;
@@ -36,6 +47,7 @@ html {
     max-height: 300px;
 }
 .main-img {
+    display: empty;
 }
 .main-img > img {
     border-radius: 12px;
