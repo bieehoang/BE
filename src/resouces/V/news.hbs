@@ -1,0 +1,16 @@
+<div class="row">
+    {{#each posts}}
+    <div class="col-lg-6 mb-4 news">
+        <div class="news-img">
+            <a href="/news/detail/{{this.slug}}">
+                <img src="{{this.img}}" alt="{{this.title}}">
+            </a>
+        </div>
+        <div class="news-title">
+            <a href="/news/detail/{{this.slug}}">
+                <h1>{{this.title}}</h1>
+            </a>
+        </div>
+    </div>
+    {{/each}}
+</div>
