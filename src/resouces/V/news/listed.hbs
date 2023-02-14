@@ -1,0 +1,28 @@
+<table class="table caption-top">
+  <caption>
+  </caption>
+  <thead>
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Post</th>
+      <th scope="col" colspan="4">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each values}}
+    <tr>
+      <th scope="row">{{sum @index 1 }}</th>
+      <td>{{ this.title }}</td>
+      <td>{{ this.post }}</td>
+      <td>{{ this.createdAt }}</td>
+      <td>
+        <a href="{{this._id}}/edit">Edit</a>
+      </td>
+      <td>
+        <a href="#">Remove</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

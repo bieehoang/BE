@@ -1,8 +1,47 @@
 @import 'variables';
-h1 {
-    color: white;
+:root {
+    --font-body: italic 400 1.3rem/1.6 'EB Garamond', serif;
+    --font-heading: normal 400 1rem/1.2 'Overpass', sans-serif;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font: var(--font-body);
+}
+.min-hei-4 {
+    min-height: 400px;
+}
+.head-title {
+    font: var(--font-body);
+}
+.search {
+    filter: blur(0.5px);
+    border-radius: 26px;
+    width: 100%;
+}
+.search:hover {
+    filter: blur(0);
+
+    cursor: pointer;
 }
 .post:first-child > img {
     margin-right: 10px;
     width: -moz-available;
+}
+.news .news-img img {
+    width: 100%;
+    max-height: 300px;
+}
+.main-img {
+}
+.main-img > img {
+    border-radius: 12px;
+}
+.avata-small {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
 }
