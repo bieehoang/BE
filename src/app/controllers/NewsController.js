@@ -44,8 +44,10 @@ class NewsController {
     // [PUT]/news/:id/
     changed(req, res, next) {
         const data = req.body;
-        PostModel.updateMany({ _id: req.params._id }, data)
-            .then(res.redirect(`/news/${req.params._id}/edit`))
+        PostModel.findOneAndUpdate({ _id: req.params._id }, data)
+            .then((x) => {
+                res.redirect(`/news/detail/${x.slug}`);
+            })
             .catch(next);
     }
 }
