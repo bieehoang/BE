@@ -20,7 +20,7 @@
         <a href="{{this._id}}/edit">Edit</a>
       </td>
       <td>
-        <a href="#" data-toggle="modal" data-target="#delete">Remove</a>
+        <a href="#" data-whatever="{{this._id}}" data-toggle="modal" data-target="#delete">Remove</a>
       </td>
     </tr>
     {{/each}}
@@ -37,19 +37,28 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+      To confirm 'YES' button bellow here, you will NOT recover it.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Yes</button>
+        <button type="button" id="button-delete" class="btn btn-danger">Yes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
 </div>
+<form id="formsp" action=""></form>
 <script>
-  window.onload = event =>{
-    $('#delete').on('shown.bs.modal', function () {
-      alert()
-    })
+  window.onload = () =>{
+    var postId;
+    var buttonDel = document.getElementById('button-delete');
+    var formSupport = document.getElementById('formsp');
+    $('#delete').on('shown.bs.modal', function (event) {
+      postId = $(event.relatedTarget).data('whatever');
+      buttonDel.onclick = ()=>{
+        formSupport.method = 'POST';
+        formSupport.action = `/news/${postId}?_method=DELETE`
+        formSupport.submit()
+      }
+    });
   }
 </script>

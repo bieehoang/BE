@@ -2,7 +2,9 @@ import PostModel from '../../M/models/Post.js';
 class SiteController {
     // [GET] /
     home(req, res, next) {
-        res.render('home');
+        res.render('home', {
+            heading: 'Welcome, home!',
+        });
     }
     // [GET] /search
     search(req, res, next) {
