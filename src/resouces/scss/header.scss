@@ -4,16 +4,20 @@
     font-size: 42px;
 }
 .search {
+    margin-left: -10px !important;
+    transition: width 0.1s ease-in;
+    // animation: border-color ease-in 10s;
+    border: 2px solid transparent;
+}
+.search > input {
     filter: blur(0.6px);
     border-radius: 26px;
-    margin-left: -10px !important;
     width: $p50;
-    transition: width 0.1s ease-in;
     animation: searchDefault ease-out 0.8s;
     animation-play-state: running;
 }
 
-.search:hover {
+.search > input:hover {
     cursor: pointer;
     animation: searchEngine ease 0.4s;
     animation-fill-mode: forwards !important;
@@ -59,7 +63,27 @@
     height: 28px;
     border-radius: 50%;
 }
-
+// Notifi box
+.notifi {
+    z-index: 100;
+    position: absolute;
+    margin-top: 100px;
+    right: -500px;
+    display: flex;
+    align-items: center;
+}
+.notifi.add {
+    animation: notiMenu ease 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes notiMenu {
+    from {
+        right: -500px;
+    }
+    to {
+        right: 5%;
+    }
+}
 @keyframes border-color {
     0% {
         border-color: rgb(255, 0, 0);

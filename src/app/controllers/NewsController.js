@@ -46,13 +46,15 @@ class NewsController {
         const data = req.body;
         PostModel.findOneAndUpdate({ _id: req.params._id }, data)
             .then((x) => {
-                res.redirect(`/news/detail/${x.slug}`);
+                // res.redirect(`/news/detail/${x.slug}`);
+                res.redirect('/news/listed');
             })
             .catch(next);
     }
     // [DELETE] /news/:id
     delete(req, res, next) {
-        PostModel.findByIdAndDelete({ _id: slug.params._id })
+        console.log(req.params, req.body);
+        PostModel.findByIdAndDelete({ _id: req.params._id })
             .then(res.redirect('back'))
             .catch(next);
     }

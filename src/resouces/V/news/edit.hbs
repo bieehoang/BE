@@ -1,10 +1,10 @@
-<form method="POST" action="changed?_method=PUT">
+<form method="POST" action="/news/{{post._id}}?_method=PUT">
   <div class="mt-4">
     <label for="title"  class="form-label"></label>
     <input type="text" name="title" class="form-control" value="{{post.title}}">
       
     <label for="post" class="form-label"></label>
-    <textarea id="my-textarea" class="form-control min-hei-4" name="post" rows="3">{{post.post}}"</textarea>
+    <textarea id="my-textarea" class="form-control min-hei-4" name="post" rows="3">{{post.post}}</textarea>
     
     <label for="img" class="form-label"></label>
     <input type="text" name="img" class="form-control" value="{{post.img}}">
