@@ -22,6 +22,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.1",
     "mongoose": "^6.9.1",
+    "mongoose-delete": "^0.5.4",
     "mongoose-slug-generator": "^1.0.4",
     "morgan": "^1.10.0",
     "node-sass": "^8.0.0",

@@ -3,7 +3,7 @@ import Util from '../../utils/mongooseHelp.js';
 class NewsController {
     // [GET] /news
     index(req, res, next) {
-        PostModel.find({})
+        PostModel.find({ deletedAt: false })
             .then((posts) => {
                 res.render('news', {
                     posts: Util.mongooseToMulti(posts),
@@ -23,7 +23,7 @@ class NewsController {
     }
     // [GET] /news/listed
     listed(req, res, next) {
-        PostModel.find({})
+        PostModel.find({ deleted: false })
             .then((values) => {
                 res.render('news/listed', {
                     values: Util.mongooseToMulti(values),
@@ -45,17 +45,27 @@ class NewsController {
     changed(req, res, next) {
         const data = req.body;
         PostModel.findOneAndUpdate({ _id: req.params._id }, data)
-            .then((x) => {
+            .then(() => {
                 // res.redirect(`/news/detail/${x.slug}`);
-                res.redirect('/news/listed');
+                res.redirect('news/listed');
             })
             .catch(next);
     }
     // [DELETE] /news/:id
     delete(req, res, next) {
-        console.log(req.params, req.body);
-        PostModel.findByIdAndDelete({ _id: req.params._id })
+        // console.log(req.params, req.body);
+        PostModel.delete({ _id: req.params._id }) // soft detele
             .then(res.redirect('back'))
+            .catch(next);
+    }
+    // [GET] /news/deleted
+    deleted(req, res, next) {
+        PostModel.find({ deleted: true })
+            .then((posts) => {
+                res.render('news/deleted', {
+                    posts: Util.mongooseToMulti(posts),
+                });
+            })
             .catch(next);
     }
 }
