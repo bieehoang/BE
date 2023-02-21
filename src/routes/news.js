@@ -7,9 +7,10 @@ const NewsRouter = express.Router();
 NewsRouter.get('/create', NewsController.create);
 NewsRouter.get('/listed', NewsController.listed);
 NewsRouter.post('/store', NewsController.store);
+NewsRouter.get('/:_id/edit', NewsController.edit);
+NewsRouter.get('/deleted', NewsController.deleted);
 NewsRouter.delete('/:_id', NewsController.delete);
 NewsRouter.put('/:_id', NewsController.changed);
-NewsRouter.get('/:_id/edit', NewsController.edit);
 NewsRouter.use('/detail', DetailRouters);
 NewsRouter.get('/', NewsController.index);
 

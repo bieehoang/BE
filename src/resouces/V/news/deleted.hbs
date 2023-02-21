@@ -1,41 +1,31 @@
-<div class="">
-
-  <table class="table caption-top">
-    <caption>
-    </caption>
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Post</th>
-        <th scope="col" colspan="4">Last Update</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each values}}
-      <tr>
-        <td scope="row">{{sum @index 1 }}</td>
-        <td>{{ this.title }}</td>
-        <td>{{ this.post }}</td>
-        <td>{{ this.updatedAt }}</td>
-        <td>
-          <a href="{{this._id}}/edit">Edit</a>
-        </td>
-        <td>
-          <a href="#" data-toggle="modal" data-target="#delete" data-whatever="{{this._id}}" >Remove</a>
-        </td>
-      </tr>
-      {{else}}
+<table class="table caption-top">
+  <caption>
+  </caption>
+  <thead>
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Post</th>
+      <th scope="col" colspan="4">Deleted At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each posts}}
+    <tr>
+      <th scope="row">{{sum @index 1 }}</th>
+      <td>{{ this.title }}</td>
+      <td>{{ this.post }}</td>
+      <td>{{ this.deletedAt }}</td>
       <td>
-        <h2 class="text-center">
-          It's seem notthing here
-          <a href="/news/create">Create here</a>
-        </h2>
+        <a href="{{this._id}}/edit">Recover</a>
       </td>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+      <td>
+        <a href="#" data-toggle="modal" data-target="#delete" data-whatever="{{this._id}}">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
 <!-- Modal confirm to delete  -->
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

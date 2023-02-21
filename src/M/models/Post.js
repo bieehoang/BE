@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import slug from 'mongoose-slug-generator';
+import MongooseDelete from 'mongoose-delete';
 mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 
@@ -13,5 +14,8 @@ const Post = new Schema(
     },
     { timestamps: true },
 );
+Post.plugin(MongooseDelete, {
+    deletedAt: true,
+});
 const PostModel = mongoose.model('PostModel', Post);
 export default PostModel;
