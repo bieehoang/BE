@@ -51,7 +51,7 @@ class NewsController {
             })
             .catch(next);
     }
-    // [DELETE] /news/:id
+    // [SOFT-DELETE] /news/:id
     delete(req, res, next) {
         // console.log(req.params, req.body);
         PostModel.delete({ _id: req.params._id }) // soft detele
@@ -65,6 +65,14 @@ class NewsController {
                 res.render('news/deleted', {
                     posts: Util.mongooseToMulti(posts),
                 });
+            })
+            .catch(next);
+    }
+    // [PATCH] /news/:id
+    recover(req, res, next) {
+        PostModel.findByIdAndUpdate({ _id: req.params.id }, { deleted: false })
+            .then(() => {
+                res.redirect('back');
             })
             .catch(next);
     }

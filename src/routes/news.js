@@ -9,6 +9,7 @@ NewsRouter.get('/listed', NewsController.listed);
 NewsRouter.post('/store', NewsController.store);
 NewsRouter.get('/:_id/edit', NewsController.edit);
 NewsRouter.get('/deleted', NewsController.deleted);
+NewsRouter.patch('/:id', NewsController.recover);
 NewsRouter.delete('/:_id', NewsController.delete);
 NewsRouter.put('/:_id', NewsController.changed);
 NewsRouter.use('/detail', DetailRouters);

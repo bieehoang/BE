@@ -17,7 +17,7 @@
       <td>{{ this.post }}</td>
       <td>{{ this.deletedAt }}</td>
       <td>
-        <a href="{{this._id}}/edit">Recover</a>
+        <a class="recover-button" data-whatever="{{this._id}}">Recover</a>
       </td>
       <td>
         <a href="#" data-toggle="modal" data-target="#delete" data-whatever="{{this._id}}">Delete</a>
@@ -51,8 +51,17 @@
   window.addEventListener("DOMContentLoaded", (e)=>{
     e.preventDefault()
     var postId;
+    let recoverBtn = $$(".recover-button")
     var buttonDel = document.getElementById('button-delete');
     var formSupport = document.getElementById('formsp');
+    for (let i=0; i < recoverBtn.length; i++){
+      recoverBtn[i].onclick = (e)=>{
+        postId = recoverBtn[i].dataset.whatever
+        formSupport.method = "POST";
+        formSupport.action = `/news/${postId}?_method=PATCH`
+        formSupport.submit()
+      }
+    } 
     jQuery('#delete').on('shown.bs.modal', function (event) {
       postId = event.relatedTarget.dataset.whatever
       buttonDel.onclick = ()=>{

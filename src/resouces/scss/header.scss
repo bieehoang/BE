@@ -10,7 +10,6 @@
     border: 2px solid transparent;
 }
 .search > input {
-    filter: blur(0.6px);
     border-radius: 26px;
     width: $p50;
     animation: searchDefault ease-out 0.8s;
@@ -31,17 +30,14 @@
     }
     to {
         width: 120%;
-        filter: blur(0);
     }
 }
 @keyframes searchDefault {
     from {
         width: 120%;
-        filter: blur(0);
     }
     to {
         width: $p50;
-        filter: blur(0.6px);
     }
 }
 .post:first-child > img {
