@@ -14,15 +14,12 @@
     width: $p50;
     animation: searchDefault ease-out 0.8s;
     animation-play-state: running;
+    cursor: pointer;
 }
 
-.search > input:hover {
-    cursor: pointer;
-    animation: searchEngine ease 0.4s;
+.search.is_active > input {
+    animation: searchEngine ease 0.8s;
     animation-fill-mode: forwards !important;
-}
-.search.ok {
-    display: none;
 }
 @keyframes searchEngine {
     from {
@@ -61,16 +58,44 @@
 }
 // Notifi box
 .notifi {
-    z-index: 100;
-    position: absolute;
-    margin-top: 100px;
-    right: -500px;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #333333;
+    transform: translateX(100%);
+    transition: transform 0.2s;
+    overflow: hidden;
     display: flex;
+    justify-content: space-around;
+    font-size: 32px;
     align-items: center;
+    z-index: 1000;
+    ul {
+        list-style: none;
+        text-align: center;
+        li div a {
+            color: #fff;
+        }
+        li div:hover a {
+            border-radius: 32px;
+            background-color: #fff;
+        }
+    }
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }
-.notifi.add {
-    animation: notiMenu ease 1s;
-    animation-fill-mode: forwards;
+.show {
+    // animation: notiMenu ease 1s;
+    // animation-fill-mode: forwards;
+    transform: translateX(0);
+}
+.notifi ul li {
+    margin: 10px 0;
 }
 @keyframes notiMenu {
     from {

@@ -3,7 +3,7 @@ import Util from '../../utils/mongooseHelp.js';
 class NewsController {
     // [GET] /news
     index(req, res, next) {
-        PostModel.find({ deletedAt: false })
+        PostModel.find({ deleted: false })
             .then((posts) => {
                 res.render('news', {
                     posts: Util.mongooseToMulti(posts),
